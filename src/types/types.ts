@@ -4,7 +4,6 @@ export type Article = {
   summary: string;
   url: string;
   image_url: string;
-  news_site: string;
   published_at: string;
 }
 

@@ -9,15 +9,23 @@ body {
   color: $text-color;
   background-color: $background-color;
   line-height: 1.5;
+  font-weight: 400;
 }
 
 .main-container {
   max-width: 1290px;
   margin: 0 auto;
   padding: 0 $spacing-md;
+  @media (min-width: $breakpoint-desktop) {
+    padding: 0;
+  }
 }
 
 .highlight {
   background-color: $highlight-color;
   font-weight: 500;
+}
+
+#root {
+  padding: 50px 0;
 }
