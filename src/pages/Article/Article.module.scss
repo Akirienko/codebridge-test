@@ -1,0 +1,54 @@
+@import '../../styles/variables';
+
+.article {
+  position: relative;
+  padding-top: 100px;
+  &-image {
+    position: absolute;
+    top: 0;
+    height: 225px;
+    width: 100%;
+  }
+
+  &-content {
+    z-index: 10;
+    position: relative;
+    padding: 10px 15px 20px;
+    background: #fff;
+    border-radius: 5px;
+    border: 1px solid rgba(234, 234, 234, 1);
+    box-shadow: 0 8px 24px 0 rgba(0, 0, 0, 0.05);
+
+    &__title {
+      font-size: 24px;
+      font-weight: 400;
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    &__text {
+      color: #000;
+      font-size: 18px;
+    }
+
+    @media (min-width: $breakpoint-desktop) {
+      padding: 35px 75px 50px;
+    }
+  }
+
+  .button-home {
+    margin-top: 35px;
+    margin-left: 50px;
+    font-weight: 700;
+  }
+
+  .not-found {
+    font-style: 20px;
+    color: red;
+  }
+
+
+  @media (min-width: $breakpoint-desktop) {
+    padding-top: 150px;
+  }
+}

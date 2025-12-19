@@ -12,18 +12,11 @@ interface ArticleListProps {
 function ArticleList({ articles }: ArticleListProps) {
 
   return (
-    <>
-
-
-
-      <div className={styles.cardsList}>
-        {articles.map((value)=>(
-          <ArticleCard key={value.id} infoCard={value} />
-        ))}
-      </div>
-
-
-    </>
+    <div className={styles.cardsList}>
+      {articles.map((value)=>(
+        <ArticleCard key={value.id} infoCard={value} />
+      ))}
+    </div>
   )
 }
 
