@@ -18,7 +18,7 @@ export const useArticlesStore = create<ArticleStore>((set) => ({
     set({ loading: true, error: null })
 
     try {
-      const getData = await fetch('https://api.spaceflightnewsapi.net/v4/articles/?limit=10')
+      const getData = await fetch('https://api.spaceflightnewsapi.net/v4/articles/?limit=60')
 
       const data: ArticlesResponse = await getData.json()
 
