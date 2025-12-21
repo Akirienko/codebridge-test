@@ -6,7 +6,11 @@ function Loader() {
 
   return (
     <>
-      <Box sx={{ display: 'flex' }}>
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+        }}>
         <CircularProgress />
       </Box>
 

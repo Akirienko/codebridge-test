@@ -1,0 +1,40 @@
+@import '../../styles/variables';
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: #FFFFFF;
+  border: 1px solid #EAEAEA;
+  border-radius: 5px;
+  padding: 10px;
+  transition: border-color 0.2s;
+  box-shadow: 0 8px 24px 0 rgba(0, 0, 0, 0.05);
+
+  &:focus-within {
+    border-color: $black;
+  }
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  margin-right: $spacing-sm;
+  color: $light-grey;
+
+  img, svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+
+  &::placeholder {
+    color: $light-grey;
+  }
+}

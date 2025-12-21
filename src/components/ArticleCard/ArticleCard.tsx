@@ -2,7 +2,7 @@ import styles from './ArticleCard.module.scss';
 
 import { useNavigate } from 'react-router-dom';
 import type { Article } from '../../types/types';
-import {formatDate} from '../../utils/utils'
+import {formatDate, highlightText} from '../../utils/utils'
 
 import {
   Card,
@@ -15,10 +15,11 @@ import calendarImage from '../../assets/icons/calendar.png'
 
 interface ArticleCardProps {
   infoCard: Article;
+  keywords?: string;
 }
 
 
-function ArticleCard({infoCard}: ArticleCardProps) {
+function ArticleCard({infoCard, keywords = ''}: ArticleCardProps) {
 
   const navigate = useNavigate();
 
@@ -44,9 +45,21 @@ function ArticleCard({infoCard}: ArticleCardProps) {
           <p>{formatDate(infoCard.published_at)}</p>
         </div>
 
-        <h3 className={styles['card-title']}>{infoCard.title}</h3>
+        <h3 className={styles['card-title']}>
+          {highlightText(infoCard.title, keywords).map((part, index) =>
+            part.isHighlight
+              ? <mark key={index} className="highlight">{part.text}</mark>
+              : <span key={index}>{part.text}</span>
+          )}
+        </h3>
 
-        <p className={styles['card-summary']}>{truncatedSummary}</p>
+        <p className={styles['card-summary']}>
+          {highlightText(truncatedSummary, keywords).map((part, index) =>
+            part.isHighlight
+              ? <mark key={index} className="highlight">{part.text}</mark>
+              : <span key={index}>{part.text}</span>
+          )}
+        </p>
 
         <div className={styles['card-button']}>
           <Button>Read more →</Button>

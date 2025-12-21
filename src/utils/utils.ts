@@ -26,3 +26,45 @@ export const formatDate = (dateString: string): string => {
 };
 
 
+interface TextPart {
+  text: string;
+  isHighlight: boolean;
+}
+
+export const highlightText = (text: string, keywords: string): TextPart[] => {
+  if (!keywords || !keywords.trim()) {
+    return [{ text, isHighlight: false }];
+  }
+
+  const words = keywords
+    .toLowerCase()
+    .trim()
+    .split(/\s+/)
+    .filter(word => word.length > 0);
+
+  if (words.length === 0) {
+    return [{ text, isHighlight: false }];
+  }
+
+  const escapedWords = words.map(word =>
+    word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+  );
+  const pattern = new RegExp(`(${escapedWords.join('|')})`, 'gi');
+
+
+  const parts = text.split(pattern);
+
+  return parts
+    .filter(part => part.length > 0)
+    .map(part => {
+      const isMatch = words.some(word =>
+        part.toLowerCase() === word.toLowerCase() ||
+        part.toLowerCase().includes(word.toLowerCase())
+      );
+
+      return {
+        text: part,
+        isHighlight: isMatch
+      };
+    });
+};
