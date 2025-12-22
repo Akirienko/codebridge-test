@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import MainInput from '../MainInput/MainInput';
 import styles from './SearchBar.module.scss';
 
